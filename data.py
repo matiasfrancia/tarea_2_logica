@@ -42,6 +42,8 @@ class Dataset:
         parse the input dataset file and split into training and test samples
         """
         lines = file_pointer.readlines()
+
+        print(lines)
         
         # parse header for feature names
         self.feature_names = lines[0].strip().split(separator)
@@ -86,3 +88,15 @@ class Dataset:
                         self.original_value_map[-binary_value] = [feature]
 
                     self.original_value_map[binary_value if bit == '1' else -binary_value].append(value)
+
+    def get_positive_train_samples(self):
+        """
+        extract positive samples from a list of samples
+        """
+        return [(i + 1, sample) for i, sample in enumerate(self.train_samples) if sample[-1] == 1]
+    
+    def get_negative_train_samples(self):
+        """
+        extract negative samples from a list of samples
+        """
+        return [(i + 1, sample) for i, sample in enumerate(self.train_samples) if sample[-1] == 0]
