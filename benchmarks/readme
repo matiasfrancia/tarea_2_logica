@@ -1,0 +1,12 @@
+
+The datasets from CP4IM, where the link is https://dtai.cs.kuleuven.be/CP4IM/datasets/, which are in format '.txt' in folder ./datasetCP4IM.
+
+The datasets binarized are in the folder ./datasetCP4IMpure, which are in format '.csv'.
+
+The datasets binarized in folder ./datasetCP4IMpureBad are used in AdaBoost integration.
+
+The method of binarlizing the non-binary feature is the "one-hot" encoding, which means creating a new binary feature for every possible value of each feature. The name format of new feature is f_o_v, where "o" is the index of original non-binary feature, and "v" is the value of this non-binary feature.
+
+The way of deciding all possible values for each feature is to scan the whole dataset, and summarize all possible values presented. 
+
+The file "summary.sum" is the summary of information for all datasets in this folder.
